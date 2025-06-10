@@ -1,12 +1,11 @@
-import { useState } from 'react'
-import './App.css'
 import './index.css';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <>
-      <p> Hello world !</p>
-    </>
+    <div className="bg-main min-h-screen">
+      <Home/>
+    </div>
   )
 }
 
