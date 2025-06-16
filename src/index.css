@@ -1,0 +1,589 @@
+/* src/index.css */
+
+/*
+* Global CSS Variables for Colors and Sizes
+* Based on your provided style.css content.
+* Use these variables in your React components or other CSS files.
+*/
+
+:root {
+  /* --- Colors --- */
+  --color-text-primary: #2e2b26; /* Dark brown/black for main text and headings */
+  --color-text-secondary: #666; /* Gray for blockquotes and secondary text */
+  --color-text-code: #223244; /* Dark blue/gray for code snippets */
+  --color-background-body: #efebe0; /* Light beige for body background */
+  --color-background-code: #dadada; /* Light gray for code background */
+  --color-background-mobile-menu: #ddd; /* Lighter gray for mobile menu background */
+  --color-link-primary: #8b4513; /* SaddleBrown for links */
+  --color-link-hover: #5a1c08; /* Darker orange/red for link hover state */
+  --color-border-primary: #666; /* Gray for table and blockquote borders */
+  --color-border-secondary: #bbb; /* Lighter gray for list item borders */
+
+  /* --- Font Families --- */
+  --font-family-body: "Noto Sans Mono", monospace;
+  --font-family-code: "Anonymous Pro", monospace;
+
+  /* --- Font Sizes (Base and Headings) --- */
+  --font-size-base: 1.8em; /* Base font size for body text (desktop) */
+  --font-size-small: 0.8em; /* 80% of current font size */
+
+  --font-size-h1: 2.4em;
+  --font-size-h2: 2em;
+  --font-size-h3: 1.6em;
+  --font-size-h4: 1.4em;
+  --font-size-h5: 1.2em;
+  --font-size-h6: 1em;
+
+  /* --- Font Weights --- */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* --- Line Heights --- */
+  --line-height-base: 1.8em;
+  --line-height-headings: 1.1;
+  --line-height-highlight: 1.6; /* For code highlights */
+  --line-height-table-cell: 1.2;
+  --line-height-list-item-link: 1.1;
+
+  /* --- Letter Spacing --- */
+  --letter-spacing-base: 0.032em;
+  --letter-spacing-headings: 0.024em;
+  --letter-spacing-topnav-title: 0;
+  --letter-spacing-topnav-link: 0;
+
+  /* --- Spacing Units (rem and px for specific elements) --- */
+  --spacing-unit-xs: 0.4rem; /* For list item padding */
+  --spacing-unit-sm: 0.8rem; /* For table cell padding, block experience margin */
+  --spacing-unit-md: 1rem; /* For table cell padding */
+  --spacing-unit-lg: 1.4rem; /* For heading bottom margin */
+  --spacing-unit-xl: 1.6rem; /* For blockquote padding, content top margin */
+  --spacing-unit-xxl: 2rem; /* For container padding, pre padding */
+  --spacing-unit-xxxl: 2.4rem; /* For pre padding, content bottom margin, list item margin, experience margin */
+  --spacing-unit-xxxxl: 3.2rem; /* For heading top margin */
+
+  --spacing-margin-paragraph: 1.8rem;
+  --spacing-margin-h1-h6: 3.2rem 0 1.4rem 0; /* Top, Right, Bottom, Left */
+  --spacing-margin-list-ul: 4rem 0;
+  --spacing-margin-pre: 2.4rem -2rem; /* Desktop */
+  --spacing-margin-post-content-img-left: 10%; /* Image left margin in blog post */
+
+  --spacing-padding-code: 4px 8px; /* Inline code padding */
+  --spacing-padding-table-cell: 0.8rem 1rem;
+  --spacing-padding-mobile-menu-item: 12px 24px;
+
+  /* --- Component Specific Sizes --- */
+  --topnav-height: 60px;
+  --topnav-gap: 24px; /* Gap between topnav list items */
+  --container-max-width: 120rem;
+  --blogpost-max-width: 80rem;
+  --endofpost-max-width: 400px;
+  --mobile-menu-min-width: 200px;
+
+  /* --- Media Query Breakpoints --- */
+  --breakpoint-mobile: 800px; /* Max-width for mobile adjustments */
+}
+
+/* Apply global variables and reset styles */
+html {
+  line-height: var(--line-height-headings); /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  box-sizing: border-box; /* Global box-sizing */
+  font-size: 62.5%; /* Base for REM units (1rem = 10px) */
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  display: flex; /* Ensures body can use flex properties */
+  flex-direction: column; /* Stacks content vertically */
+  min-height: 100vh; /* Ensures body takes full viewport height */
+  color: var(--color-text-primary);
+  background-color: var(
+    --color-background-body
+  ); /* Using the new background color variable */
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-base);
+  line-height: var(--line-height-base);
+}
+
+@media screen and (max-width: var(--breakpoint-mobile)) {
+  body {
+    font-size: var(--font-size-base-mobile);
+    line-height: var(--line-height-base-mobile);
+  }
+}
+
+/* Sections */
+main {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  border-style: none; /* Remove border on images inside links */
+}
+
+/* Forms */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+/* Interactive */
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+/* Misc */
+template {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+/* Your template CSS specific styles below, using variables where applicable */
+
+.container {
+  margin: 0 auto;
+  max-width: var(--container-max-width);
+  width: 100%;
+  padding-left: var(--spacing-unit-xxl);
+  padding-right: var(--spacing-unit-xxl);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.content {
+  flex: 1;
+  margin-top: var(--spacing-unit-xl);
+  margin-bottom: var(--spacing-unit-xxxl);
+}
+
+.centered {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+@media print {
+  @page {
+    size: auto;
+    margin: 0;
+  }
+  nav,
+  footer {
+    display: none !important;
+  }
+  html {
+    font-size: 36%;
+    padding: 32px;
+  }
+  .content {
+    margin-top: -24px;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+  margin: var(--spacing-margin-h1-h6);
+  letter-spacing: var(--letter-spacing-headings);
+  line-height: var(--line-height-headings);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+}
+
+h5 {
+  font-size: var(--font-size-h5);
+}
+
+h6 {
+  font-size: var(--font-size-h6);
+}
+
+@media screen and (max-width: var(--breakpoint-mobile)) {
+  h1 {
+    font-size: var(--font-size-h1-mobile);
+  }
+  h2 {
+    font-size: var(--font-size-h2-mobile);
+  }
+  h3 {
+    font-size: var(--font-size-h3-mobile);
+  }
+  h4 {
+    font-size: var(--font-size-h4-mobile);
+  }
+  h5 {
+    font-size: var(--font-size-h5-mobile);
+  }
+  h6 {
+    font-size: var(--font-size-h6-mobile);
+  }
+}
+a {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-link-primary);
+  text-decoration: none;
+}
+a:focus,
+a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
+
+p {
+  margin: var(--spacing-margin-paragraph) 0;
+  text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.05);
+}
+
+blockquote {
+  border-left: 2px solid var(--color-border-primary);
+  padding-left: var(--spacing-unit-xl);
+  font-style: italic;
+}
+blockquote p {
+  color: var(--color-border-primary);
+}
+
+pre {
+  padding: var(--spacing-unit-xxxl) var(--spacing-unit-xxl);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: var(--spacing-margin-pre);
+}
+@media screen and (max-width: var(--breakpoint-mobile)) {
+  pre {
+    margin: var(--spacing-margin-pre-mobile);
+  }
+}
+
+code {
+  color: var(--color-text-code);
+  background-color: var(--color-background-code);
+  font-family: var(--font-family-code);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-padding-code);
+}
+
+.highlight {
+  line-height: var(--line-height-highlight);
+}
+.highlight code {
+  color: unset;
+  background-color: unset;
+  padding: 0;
+  font-weight: var(--font-weight-regular);
+}
+
+.topnav {
+  height: var(--topnav-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topnav-title {
+  color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-topnav-title);
+}
+
+.topnav-list {
+  list-style: none;
+  display: flex;
+  gap: var(--topnav-gap);
+}
+
+.topnav-link {
+  color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-topnav-link);
+}
+
+.mobilemenu {
+  display: none;
+}
+
+@media screen and (max-width: var(--breakpoint-mobile)) {
+  .mobilemenu {
+    display: initial;
+    color: var(--color-text-primary);
+  }
+  .topnav-list {
+    display: none;
+    gap: 0;
+  }
+  .topnav-list.navopen {
+    display: block;
+    position: absolute;
+    top: var(--topnav-height);
+    right: var(--spacing-unit-xxl);
+    padding-left: 0 !important;
+    height: auto;
+    text-align: right;
+    background-color: var(--color-background-mobile-menu);
+    display: flex;
+    flex-direction: column;
+  }
+  .topnav-item {
+    display: inline-block;
+    border-top: solid 1px #999; /* This can be replaced with a variable too if desired */
+    min-width: var(--mobile-menu-min-width);
+    padding: var(--spacing-padding-mobile-menu-item);
+  }
+  .topnav-item:first-of-type {
+    border-top: none;
+  }
+}
+table {
+  border-collapse: collapse;
+}
+table td,
+table th {
+  text-align: left;
+  border: 1px solid var(--color-border-primary);
+  padding: var(--spacing-padding-table-cell);
+  font-size: var(
+    --font-size-h3
+  ); /* Using h3 font size for table cells as an example */
+  line-height: var(--line-height-table-cell);
+}
+table tr:first-child th {
+  border-top: 0;
+}
+table tr:last-child td {
+  border-bottom: 0;
+}
+table tr td:first-child,
+table tr th:first-child {
+  border-left: 0;
+}
+table tr td:last-child,
+table tr th:last-child {
+  border-right: 0;
+}
+
+.list ul {
+  list-style: none;
+  margin: var(--spacing-margin-list-ul);
+  padding: 0;
+}
+.list ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+  padding: var(--spacing-unit-xs) 0;
+  border-bottom: 1px solid var(--color-border-secondary);
+}
+.list ul li span {
+  display: block;
+  width: 100%;
+  max-width: 20rem;
+  margin-left: 3rem;
+}
+.list ul li a {
+  color: var(--color-text-primary);
+  line-height: var(--line-height-list-item-link);
+}
+@media screen and (max-width: var(--breakpoint-mobile)) {
+  .list ul li {
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: none;
+    padding: var(--spacing-padding-list-item-mobile);
+  }
+  .list ul li span {
+    margin-left: 0;
+    font-size: var(--font-size-list-item-span-mobile);
+  }
+}
+
+article.blogpost {
+  max-width: var(--blogpost-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-font-smoothing: antialiased !important;
+  text-rendering: optimizelegibility !important;
+}
+
+.post-content {
+  margin-top: 64px; /* Can be replaced with a variable */
+}
+.post-content img {
+  width: 80%;
+  margin-left: var(--spacing-margin-post-content-img-left);
+}
+.post-content .highlight {
+  font-size: 14px; /* Can be replaced with a variable */
+  line-height: var(--line-height-highlight);
+}
+@media screen and (max-width: var(--breakpoint-mobile)) {
+  .post-content {
+    margin-top: var(--spacing-margin-post-content-mobile);
+  }
+  .post-content .highlight {
+    font-size: var(--font-size-highlight-mobile);
+  }
+}
+
+.endofpost {
+  max-width: var(--endofpost-max-width);
+  margin: 3em auto 3.4em; /* Can be replaced with variables */
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #888; /* Can be replaced with a variable */
+  padding: 0;
+}
+
+a[href^="#fn:"]:before {
+  content: "[";
+}
+
+a[href^="#fn:"]:after {
+  content: "]";
+}
+
+.footnotes hr {
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #888; /* Can be replaced with a variable */
+}
+
+.block-experience h4 {
+  margin-bottom: var(--spacing-unit-xs);
+}
+.block-experience p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-unit-sm);
+}
+.block-experience ul {
+  margin-top: 0;
+  margin-bottom: var(--spacing-unit-xxxl);
+}
